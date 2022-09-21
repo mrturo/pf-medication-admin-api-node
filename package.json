@@ -1,0 +1,51 @@
+{
+  "name": "pf-medication-admin-api-node",
+  "description": "API REST NODE to Medication Administration",
+  "version": "1.0.0",
+  "author": "Arturo Mendoza <arturo.amb89@gmail.com>",
+  "license": "ISC",
+  "main": "dist/src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mrturo/pf-medication-admin-api-node.git"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "amend-commit": "git commit -a --amend && git push -f",
+    "build": "tsc",
+    "clean-windows": "rd /s /q node_modules && rd /s /q coverage && rd /s /q dist",
+    "dev": "npm install && set NODE_ENV=development && ts-node-dev dist/src/main.js",
+    "install-build": "npm install && npm run build",
+    "lint": "eslint . --ext .ts --fix",
+    "prettier": "prettier --config .prettierrc src/**/*.ts test/**/*.ts *.js *.json *.yml *.md .eslintrc .prettierrc --write",
+    "prettier-lint": "npm install && npm run prettier & npm run lint",
+    "start": "set NODE_ENV=production && node dist/src/main.js",
+    "start:dev": "set NODE_ENV=development && node dist/src/main.js",
+    "test": "npm install && set NODE_ENV=testing && jest -c jest.config.js",
+    "test:integration": "npm install && set NODE_ENV=testing && jest -c jest.integration.config.js",
+    "test:unit": "npm install && set NODE_ENV=testing && jest -c jest.unit.config.js"
+  },
+  "dependencies": {
+    "@types/pg": "^8.6.5",
+    "dotenv": "^16.0.2",
+    "pg": "^8.8.0",
+    "winston": "^3.8.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.4",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.19.0",
+    "eslint-plugin-sort-class-members": "^1.14.1",
+    "jest": "^28.1.2",
+    "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.1.0",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.4"
+  }
+}

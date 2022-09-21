@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  app:
+    container_name: pf-medication-admin-api-node
+    cap_add:
+      - 'SYS_ADMIN'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - '3001:3001'
+      - '9229:9229'
+    command: npm run start
