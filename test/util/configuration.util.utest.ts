@@ -11,5 +11,15 @@ describe('Suit to class Configuration', () => {
     expect(ConfigurationUtil.PG_PASSWORD()).not.toBe('');
     expect(ConfigurationUtil.PG_PORT()).not.toBe('');
     expect(ConfigurationUtil.PG_USER()).not.toBe('');
+
+    expect(ConfigurationUtil.prepareStr('A','B')).toBe('A');
+    expect(ConfigurationUtil.prepareStr(undefined,'B')).toBe('B');
+    expect(ConfigurationUtil.prepareStr('A',undefined)).toBe('A');
+    expect(ConfigurationUtil.prepareStr(undefined,undefined)).toBe('');
+
+    expect(ConfigurationUtil.prepareNmb('1',2)).toBe(1);
+    expect(ConfigurationUtil.prepareNmb(undefined,2)).toBe(2);
+    expect(ConfigurationUtil.prepareNmb('1',undefined)).toBe(1);
+    expect(ConfigurationUtil.prepareNmb(undefined,undefined)).toBe(0);
   });
 });
